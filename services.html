@@ -704,14 +704,17 @@
               </div>
 
               <div class="contact-form creators-form">
-                <form id="contactForm">
+                <form
+                  id="contactForm"
+                  method="POST"
+                  action="https://formspree.io/f/xyyrjgew"
+                >
                   <div class="form-group">
                     <input
                       type="text"
                       name="name"
                       class="form-control"
                       required
-                      data-error="Please enter your name"
                       placeholder="Name"
                     />
                     <div class="help-block with-errors"></div>
@@ -719,10 +722,9 @@
                   <div class="form-group">
                     <input
                       type="email"
-                      name="name"
+                      name="email"
                       class="form-control"
                       required
-                      data-error="Please enter your email"
                       placeholder="Email"
                     />
                     <div class="help-block with-errors"></div>
@@ -730,10 +732,9 @@
                   <div class="form-group">
                     <input
                       type="text"
-                      name="name"
+                      name="subject"
                       class="form-control"
                       required
-                      data-error="Please enter your Subject"
                       placeholder="Subject"
                     />
                     <div class="help-block with-errors"></div>
@@ -748,7 +749,6 @@
                         cols="30"
                         rows="6"
                         required
-                        data-error="Write your message"
                       ></textarea>
                       <div class="help-block with-errors"></div>
                     </div>
@@ -759,9 +759,10 @@
                       type="checkbox"
                       value=""
                       id="flexCheckDefault"
+                      required
                     />
                     <label class="form-check-label" for="flexCheckDefault">
-                      I agree all
+                      I agree to all
                       <a href="terms-conditions.html">Terms & Conditions</a>
                     </label>
                   </div>
@@ -940,6 +941,20 @@
     <div class="go-top">
       <i class="ri-arrow-up-line"></i>
     </div>
+
+    <script>
+      // Optional: Add custom JavaScript for additional functionality or validation
+      // You can also use an external script file
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // You may add additional validation or processing here before submitting to Formspree
+
+          this.submit(); // Submit the form to Formspree
+        });
+    </script>
 
     <!-- Js Files -->
     <script src="assets/js/jquery.min.js"></script>
